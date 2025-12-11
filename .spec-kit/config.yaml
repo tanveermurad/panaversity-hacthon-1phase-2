@@ -1,0 +1,41 @@
+name: todo-app-hackathon
+version: 1.0.0
+description: Full-stack Todo Application for Hackathon Phase II
+
+structure:
+  specs_dir: specs
+  features_dir: specs/features
+  api_dir: specs/api
+  database_dir: specs/database
+  ui_dir: specs/ui
+
+conventions:
+  spec_format: markdown
+  naming: kebab-case
+
+components:
+  frontend:
+    path: frontend
+    framework: next.js
+    version: "16+"
+
+  backend:
+    path: backend
+    framework: fastapi
+    language: python
+
+  database:
+    type: postgresql
+    provider: neon
+    orm: sqlmodel
+
+  auth:
+    provider: better-auth
+    strategy: jwt
+
+workflow:
+  - read_spec
+  - implement_backend
+  - implement_frontend
+  - test
+  - iterate
